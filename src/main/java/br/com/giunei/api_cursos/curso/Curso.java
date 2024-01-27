@@ -1,6 +1,7 @@
 package br.com.giunei.api_cursos.curso;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +23,10 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @NotBlank(message = "Esse campo é obrigatório!")
     private String name;
+
+    @NotBlank(message = "Esse campo é obrigatório!")
     private String category;
 
     @Enumerated(EnumType.STRING)

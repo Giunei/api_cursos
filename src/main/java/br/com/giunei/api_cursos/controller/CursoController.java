@@ -3,7 +3,9 @@ package br.com.giunei.api_cursos.controller;
 import br.com.giunei.api_cursos.curso.CursoDto;
 import br.com.giunei.api_cursos.curso.CursoMapper;
 import br.com.giunei.api_cursos.curso.CursoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +22,11 @@ public class CursoController {
     private CursoMapper cursoMapper;
 
     @PostMapping
-    public CursoDto save(@RequestBody CursoDto curso) {
-        return cursoMapper.toCursoDto(
+    public ResponseEntity<Object> save(@Valid @RequestBody CursoDto curso) {
+        CursoDto result = cursoMapper.toCursoDto(
                 cursoService.save(
                         cursoMapper.toCursoEntity(curso)));
+        return ResponseEntity.ok().body(result);
     }
 
     @GetMapping
