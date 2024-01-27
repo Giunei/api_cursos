@@ -36,7 +36,7 @@ public class CursoController {
 
     @PutMapping("/{id}")
     public CursoDto update(@PathVariable UUID id,
-                           @RequestBody CursoDto curso) {
+                           @Valid @RequestBody CursoDto curso) {
         curso.setId(id);
         return cursoMapper.toCursoDto(
                 cursoService.update(

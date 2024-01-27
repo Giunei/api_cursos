@@ -1,7 +1,6 @@
 package br.com.giunei.api_cursos.exceptions;
 
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
